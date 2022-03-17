@@ -1,5 +1,5 @@
 ### Scribble-Supervised LiDAR Semantic Segmentation
-Dataset and code release for the paper **Scribble-Supervised LiDAR Semantic Segmentation**, CVPR 2022. <br>
+Dataset and code release for the paper [**Scribble-Supervised LiDAR Semantic Segmentation**, CVPR 2022.](https://arxiv.org/abs/2203.08537) <br>
 **Authors**: Ozan Unal, Dengxin Dai, Luc Van Gool
 
 ---
