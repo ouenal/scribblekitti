@@ -1,0 +1,9 @@
+p_value: 0.5
+k_count: 10
+max_bound: 50
+min_bound: 0
+
+dataset:
+  root_dir: 'data/sequences'
+  prefix: baseline
+  aug: []
