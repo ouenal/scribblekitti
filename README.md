@@ -4,10 +4,11 @@ Dataset and code release for the paper [**Scribble-Supervised LiDAR Semantic Seg
 
 **Abstract**: Densely annotating LiDAR point clouds remains too expensive and time-consuming to keep up with the ever growing volume of data. While current literature focuses on fully-supervised performance, developing efficient methods that take advantage of realistic weak supervision have yet to be explored. In this paper, we propose using scribbles to annotate LiDAR point clouds and release ScribbleKITTI, the first scribble-annotated dataset for LiDAR semantic segmentation. Furthermore, we present a pipeline to reduce the performance gap that arises when using such weak annotations. Our pipeline comprises of three stand-alone contributions that can be combined with any LiDAR semantic segmentation model to achieve up to 95.7% of the fully-supervised performance while using only 8% labeled points.
 
+
 ---
 
 ### News
-
+**\[2022-08\]** Leaderboard available [here](https://paperswithcode.com/sota/3d-semantic-segmentation-on-scribblekitti), make sure you submit your validation set results! <br>
 **\[2022-04\]** We release our training code with the Cylinder3D backbone. <br>
 **\[2022-03\]** Our paper is accepted to **CVPR 2022** for an **ORAL** presentation! <br>
 **\[2022-03\]** We release ScribbleKITTI, the first scribble-annotated dataset for LiDAR semantic segmentation. <br>
@@ -107,12 +108,13 @@ python evaluate.py --config_path config/distillation.yaml --dataset_config_path 
 
 If you use our dataset or our work in your research, please cite:
 
-```
-@InProceedings{Unal_2022_CVPR,
-    author    = {Unal, Ozan and Dai, Dengxin and Van Gool, Luc},
-    title     = {Scribble-Supervised LiDAR Semantic Segmentation},
-    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-    year      = {2022},
+```bibtex
+@inproceedings{unal2022scribble,
+  title={Scribble-supervised lidar semantic segmentation},
+  author={Unal, Ozan and Dai, Dengxin and Van Gool, Luc},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={2697--2707},
+  year={2022}
 }
 ```
 
