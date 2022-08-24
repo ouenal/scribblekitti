@@ -27,7 +27,7 @@ if __name__=='__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--config_path', default='config/distillation.yaml')
     parser.add_argument('--dataset_config_path', default='config/semantickitti.yaml')
-    parser.add_argument('--checkpoint_path', default='output/distillation_original.ckpt')
+    parser.add_argument('--ckpt_path', default='output/distillation_original.ckpt')
     args = parser.parse_args()
 
     config =  yaml.safe_load(open(args.config_path, 'r'))
@@ -35,5 +35,5 @@ if __name__=='__main__':
     wandb_logger = WandbLogger(config=config, save_dir=config['trainer']['default_root_dir'], **config['logger'])
 
     trainer = Trainer(logger=wandb_logger, **config['trainer'])
-    model = LightningEvaluator.load_from_checkpoint(args.checkpoint_path, config=config)
+    model = LightningEvaluator.load_from_checkpoint(args.ckpt_path, config=config)
     trainer.test(model)
