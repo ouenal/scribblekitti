@@ -100,7 +100,7 @@ python evaluate.py --config_path config/distillation.yaml --dataset_config_path 
 
 ### Quick Access for Download Links:
 - [Dataset](https://data.vision.ee.ethz.ch/ouenal/scribblekitti/scribblekitti.zip) (118MB).
-- [Checkpoint of the trained model after step-1](https://data.vision.ee.ethz.ch/ouenal/scribblekitti/scribblekitti.ckpt) (427MB).
+- [Checkpoint of the trained model after step-1](https://data.vision.ee.ethz.ch/ouenal/scribblekitti/training.ckpt) (427MB).
 - [Psuedo-labels generated in a class-range-balanced manner](https://data.vision.ee.ethz.ch/ouenal/scribblekitti/crb.zip) (194MB).
 - [Checkpoint of the trained model after step-2](https://data.vision.ee.ethz.ch/ouenal/scribblekitti/distillation_original.ckpt) (427MB).
 ---
