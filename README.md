@@ -22,7 +22,7 @@ Check out the project page [here](https://ouenal.github.io/scribblekitti/).
 
 We annotate the train-split of [SemanticKITTI](http://semantic-kitti.org/) based on [KITTI](http://www.cvlibs.net/datasets/kitti/eval_odometry.php) which consists of 10 sequences, 19130 scans, 2349 million points. ScribbleKITTI contains 189 million labeled points corresponding to only 8.06% of the total point count. We choose SemanticKITTI for its current wide use and established benchmark. We retain the same 19 classes to encourage easy transitioning towards research into scribble-supervised LiDAR semantic segmentation.
 
-Our scribble labels can be downloaded [here](https://data.vision.ee.ethz.ch/ouenal/scribblekitti/scribblekitti.zip) (118.2MB).
+Our scribble labels can be downloaded [here](https://drive.google.com/file/d/1uTeMAaKRX5hLvS12yJ6i56OcsOMVh_TR/view?usp=drive_link) (118.2MB).
 
 ### Data organization
 
@@ -65,14 +65,14 @@ Futhermore install the following dependencies:
 - [spconv](https://github.com/traveller59/spconv) (tested with version 1.2.1)
 
 ### Data Preparation
-Please follow the instructions from [SemanticKITTI](http://www.semantic-kitti.org) to download the dataset including the KITTI Odometry point cloud data. Download our [scribble annotations](https://data.vision.ee.ethz.ch/ouenal/scribblekitti/scribblekitti.zip) and unzip in the same directory. Each sequence in the train-set (00-07, 09-10) should contain the `velodyne`, `labels` and `scribbles` directories.
+Please follow the instructions from [SemanticKITTI](http://www.semantic-kitti.org) to download the dataset including the KITTI Odometry point cloud data. Download our [scribble annotations](https://drive.google.com/file/d/1uTeMAaKRX5hLvS12yJ6i56OcsOMVh_TR/view?usp=drive_link) and unzip in the same directory. Each sequence in the train-set (00-07, 09-10) should contain the `velodyne`, `labels` and `scribbles` directories.
 
 Move the `sequences` folder into a new directoy called `data/`. Alternatively, edit the `dataset: root_dir` field of each config file to point to the sequences folder.
 
 ### Training
 The training of our method requires three steps as illustrated in the above figure: (1) **training**, where we utilize the PLS descriptors and the mean teacher framework to generate high quality pseudo-labels; (2) **pseudo-labeling**, where we fix the trained teacher models predictions in a class-range-balanced manner; (3) **distillation**, where we train on the generated psuedo-labels.
 
-**Step 1** can be trained as follows. The checkpoint for the trained first stage model can be downloaded [here](https://data.vision.ee.ethz.ch/ouenal/scribblekitti/training.ckpt). (The resulting model will show slight improvements over the model presented in the paper with 86.38% mIoU on the fully-labeled train-set.)
+**Step 1** can be trained as follows. The checkpoint for the trained first stage model can be downloaded [here](https://drive.google.com/file/d/1HzGS1Wi5JEvlvMPAOoI9j7GCEcMtzM5k/view?usp=drive_link). (The resulting model will show slight improvements over the model presented in the paper with 86.38% mIoU on the fully-labeled train-set.)
 ```bash
 python train.py --config_path config/training.yaml --dataset_config_path config/semantickitti.yaml
 ```
@@ -82,12 +82,12 @@ Warning: This step will initially create a save file `training_results.h5` (27GB
 ```bash
 python save.py --config_path config/training.yaml --dataset_config_path config/semantickitti.yaml --checkpoint_path STEP1/CKPT/PATH --save_dir SAVE/DIR
 ```
-Next, we find the optimum threshold for each class-annuli pairing and generate pseudo-labels in a class-range balanced manner. The psuedo-labels will be saved in the same root directory as the scribble lables but under a new folder called `crb`. The generated pseudo-labels from our model can be downloaded [here](https://data.vision.ee.ethz.ch/ouenal/scribblekitti/crb.zip).
+Next, we find the optimum threshold for each class-annuli pairing and generate pseudo-labels in a class-range balanced manner. The psuedo-labels will be saved in the same root directory as the scribble lables but under a new folder called `crb`. The generated pseudo-labels from our model can be downloaded [here](https://drive.google.com/file/d/1UQXyDHq52wNV1BcVbtiocb0FHYiJ_CoK/view?usp=drive_link).
 ```bash
 python crb.py --config_path config/crb.yaml --dataset_config_path config/semantickitti.yaml --save_dir SAVE/DIR
 ```
 
-**Step 3** can be trained as follows. The resulting model state_dict can be downloaded [here](https://data.vision.ee.ethz.ch/ouenal/scribblekitti/distillation_original.ckpt) (61.25% mIoU).
+**Step 3** can be trained as follows. The resulting model state_dict can be downloaded [here](https://drive.google.com/file/d/1jtvb5x78vdK6EavpASPiQyJ55QMElEqB/view?usp=drive_link) (61.25% mIoU).
 ```bash
 python train.py --config_path config/distillation.yaml --dataset_config_path config/semantickitti.yaml
 ```
@@ -100,10 +100,10 @@ python evaluate.py --config_path config/distillation.yaml --dataset_config_path 
 ```
 
 ### Quick Access for Download Links:
-- [Dataset](https://data.vision.ee.ethz.ch/ouenal/scribblekitti/scribblekitti.zip) (118MB).
-- [Checkpoint of the trained model after step-1](https://data.vision.ee.ethz.ch/ouenal/scribblekitti/training.ckpt) (427MB).
-- [Psuedo-labels generated in a class-range-balanced manner](https://data.vision.ee.ethz.ch/ouenal/scribblekitti/crb.zip) (194MB).
-- [Checkpoint of the trained model after step-2](https://data.vision.ee.ethz.ch/ouenal/scribblekitti/distillation_original.ckpt) (427MB).
+- [Dataset](https://drive.google.com/file/d/1uTeMAaKRX5hLvS12yJ6i56OcsOMVh_TR/view?usp=drive_link) (118MB).
+- [Checkpoint of the trained model after step-1](https://drive.google.com/file/d/1HzGS1Wi5JEvlvMPAOoI9j7GCEcMtzM5k/view?usp=drive_link) (427MB).
+- [Psuedo-labels generated in a class-range-balanced manner](https://drive.google.com/file/d/1UQXyDHq52wNV1BcVbtiocb0FHYiJ_CoK/view?usp=drive_link) (194MB).
+- [Checkpoint of the trained model after step-2](https://drive.google.com/file/d/1jtvb5x78vdK6EavpASPiQyJ55QMElEqB/view?usp=drive_link) (427MB).
 ---
 
 ### Citation
