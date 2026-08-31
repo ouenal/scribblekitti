@@ -9,7 +9,6 @@ Check out the project page [here](https://ouenal.github.io/scribblekitti/).
 ---
 
 ### News
-**\[2022-08\]** Leaderboard available [here](https://paperswithcode.com/sota/3d-semantic-segmentation-on-scribblekitti), make sure you submit your validation set results! <br>
 **\[2022-04\]** We release our training code with the Cylinder3D backbone. <br>
 **\[2022-03\]** Our paper is accepted to **CVPR 2022** for an **ORAL** presentation! <br>
 **\[2022-03\]** We release ScribbleKITTI, the first scribble-annotated dataset for LiDAR semantic segmentation. <br>
